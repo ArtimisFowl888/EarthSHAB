@@ -14,8 +14,8 @@ balloon_properties = dict(
     Upsilon = 2.5,                    # Ascent Resistance coefficient
 )
 
-gfs = "2021-03-29 12:00:00" # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-03-29 11:32:00") # Simulation start time. The end time needs to be within the downloaded forecast
+gfs = "2021-06-16 12:00:00" # Forecast start time, should match a downloaded forecast
+start_time = datetime.fromisoformat("2021-06-17 11:32:00") # Simulation start time. The end time needs to be within the downloaded forecast
 
 #These parameters are for both downloading new forecasts, and running simulations with downloaded forecasts.
 netcdf = dict(
@@ -26,7 +26,7 @@ netcdf = dict(
     res = 0.25,       # (deg) Do not change
     lat_range = 40,  # (.25 deg)
     lon_range= 60,   # (.25 deg)
-    hours3 = 8,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
+    hours3 = 32,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
 )
 
 
@@ -38,9 +38,9 @@ simulation = dict(
     alt_sp = 15000.0,           # (m) Altitude Setpoint
     v_sp = 0.,                  # (m/s) Altitude Setpoint, Not Implemented right now
     start_coord =	{
-                      "lat": 39.828,           # (deg) Latitude
-                      "lon": -98.5795,         # (deg) Longitude
-                      "alt": 408.,             # (m) Elevation
+                      "lat": 36.1626,           # (deg) Latitude
+                      "lon": -96.8358,         # (deg) Longitude
+                      "alt": 300.,             # (m) Elevation
                       "timestamp": start_time, # timestamp
                     },
     min_alt = 408.,             # starting altitude. Generally the same as initial coordinate
@@ -60,6 +60,6 @@ earth_properties = dict(
     albedo = 0.17,              # assumption
 )
 
-dt = 3.0 # (s) Time Step for integrating (If error's occur, use a lower step size)
+dt = 1.0 # (s) Time Step for integrating (If error's occur, use a lower step size)
 
 
