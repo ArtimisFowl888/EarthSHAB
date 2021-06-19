@@ -5,6 +5,7 @@ import fluids
 import gmplot
 import config_earth
 import pandas as pd
+import time as tm
 from matplotlib.pyplot import cm
 import matplotlib as mpl
 import os
@@ -20,6 +21,8 @@ changing the payload mass in .25 increments.
 
 if not os.path.exists('trajectories'):
     os.makedirs('trajectories')
+
+scriptstartTime = tm.time()
 
 coord = config_earth.simulation['start_coord']
 nc_start = config_earth.netcdf["nc_start"]
@@ -159,8 +162,12 @@ region= zip(*[
 gmap1.polygon(*region, color='cornflowerblue', edge_width=1, alpha= .2)
 gmap1.draw("trajectories/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html" )
 
+executionTime = (tm.time() - scriptstartTime)
+print('\nSimulation executed in ' + str(executionTime) + ' seconds.')
+
 plt.style.use('default')
 hour_index, new_timestamp = windmap.getHourIndex(start, nc_start)
 windmap.plotWindVelocity(hour_index,coord["lat"],coord["lon"])
 windmap.plotTempAlt(hour_index,coord["lat"],coord["lon"])
+fig.savefig("plots/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
 plt.show()
