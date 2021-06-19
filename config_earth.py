@@ -15,7 +15,7 @@ balloon_properties = dict(
 )
 
 gfs = "2021-06-16 12:00:00" # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-06-17 11:32:00") # Simulation start time. The end time needs to be within the downloaded forecast
+start_time = datetime.fromisoformat("2021-06-17 12:30:00") # Simulation start time. The end time needs to be within the downloaded forecast
 
 #These parameters are for both downloading new forecasts, and running simulations with downloaded forecasts.
 netcdf = dict(
@@ -26,7 +26,7 @@ netcdf = dict(
     res = 0.25,       # (deg) Do not change
     lat_range = 40,  # (.25 deg)
     lon_range= 60,   # (.25 deg)
-    hours3 = 32,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
+    hours3 = 40,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
 )
 
 

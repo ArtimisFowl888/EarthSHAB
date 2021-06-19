@@ -54,7 +54,8 @@ coords = [coord]
 ttt = [t - pd.Timedelta(hours=GMT)] #Just for visualizing plot better]
 data_loss = False
 burst = False
-gmap1 = gmplot.GoogleMapPlotter(coord["lat"],coord["lon"], 10)
+apikey = 'AIzaSyAiWKG1qDNkm8PfVe5eZumiE1GMktiiwyM' # (your API key here)
+gmap1 = gmplot.GoogleMapPlotter(coord["lat"],coord["lon"], 10, apikey=apikey)
 
 e = solve_states.SolveStates()
 gfs = GFS.GFS(coord)

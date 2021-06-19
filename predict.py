@@ -24,7 +24,8 @@ if not os.path.exists('trajectories'):
 coord = config_earth.simulation['start_coord']
 nc_start = config_earth.netcdf["nc_start"]
 gfs = GFS.GFS(coord)
-gmap1 = gmplot.GoogleMapPlotter(coord["lat"], coord["lon"], 10)
+apikey = 'AIzaSyAiWKG1qDNkm8PfVe5eZumiE1GMktiiwyM' # (your API key here)
+gmap1 = gmplot.GoogleMapPlotter(coord["lat"], coord["lon"], 10, apikey=apikey)
 hourstamp = config_earth.netcdf['hourstamp']
 
 masses = [0, .25, .5, .75, 1, 1.25, 1.5, 1.75, 2]
