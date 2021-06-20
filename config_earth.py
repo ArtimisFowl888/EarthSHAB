@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from backports.datetime_fromisoformat import MonkeyPatch
+
 MonkeyPatch.patch_fromisoformat()     # Hacky solution for Python 3.6 to use ISO format Strings
 
 balloon_properties = dict(
@@ -15,7 +17,7 @@ balloon_properties = dict(
 )
 
 gfs = "2021-06-19 12:00:00" # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-06-21 12:30:00") # Simulation start time. The end time needs to be within the downloaded forecast
+start_time = datetime.fromisoformat("2021-06-19 12:30:00") # Simulation start time. The end time needs to be within the downloaded forecast
 
 #These parameters are for both downloading new forecasts, and running simulations with downloaded forecasts.
 netcdf = dict(
@@ -26,7 +28,7 @@ netcdf = dict(
     res = 0.25,       # (deg) Do not change
     lat_range = 40,  # (.25 deg)
     lon_range= 40,   # (.25 deg)
-    hours3 = 40,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
+    hours3 = 16,      # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
 )
 
 
