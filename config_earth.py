@@ -6,7 +6,7 @@ MonkeyPatch.patch_fromisoformat()     # Hacky solution for Python 3.6 to use ISO
 
 balloon_properties = dict(
     shape = 'sphere',
-    d = 5.8,                          # (m) Diameter of Sphere Balloon
+    d = 6,                          # (m) Diameter of Sphere Balloon
     mp = 1.15,                        # (kg) Mass of Payload
     areaDensityEnv = 939.*7.87E-6,    # (Kg/m^2) rhoEnv*envThickness
     mEnv = 1.3,                       # (kg) Mass of Envelope - SHAB1
@@ -16,8 +16,8 @@ balloon_properties = dict(
     Upsilon = 2.5,                    # Ascent Resistance coefficient
 )
 
-gfs = "2021-06-19 12:00:00" # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-06-19 12:30:00") # Simulation start time. The end time needs to be within the downloaded forecast
+gfs = "2021-06-22 12:00:00" # Forecast start time, should match a downloaded forecast
+start_time = datetime.fromisoformat("2021-06-23 12:30:00") # Simulation start time. The end time needs to be within the downloaded forecast
 
 #These parameters are for both downloading new forecasts, and running simulations with downloaded forecasts.
 netcdf = dict(
@@ -62,6 +62,6 @@ earth_properties = dict(
     albedo = 0.17,              # assumption
 )
 
-dt = 1.0 # (s) Time Step for integrating (If error's occur, use a lower step size)
+dt = 2.0 # (s) Time Step for integrating (If error's occur, use a lower step size)
 
 

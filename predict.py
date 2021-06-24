@@ -159,7 +159,7 @@ region= zip(*[
     (gfs.LAT_LOW, gfs.LON_HIGH)
 ])
 
-gmap1.polygon(*region, color='cornflowerblue', edge_width=1, alpha= .2)
+# gmap1.polygon(*region, color='cornflowerblue', edge_width=1, alpha= .2)
 gmap1.draw("trajectories/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html" )
 
 executionTime = (tm.time() - scriptstartTime)
