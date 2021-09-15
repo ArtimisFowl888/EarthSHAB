@@ -91,3 +91,5 @@ for name, variable in nc_in.variables.items():
             data = nc_in.variables[name][i,0:34,lat_i-lat_range:lat_i+lat_range,lon_i-lon_range:lon_i+lon_range] #This array can only have a maximum of  536,870,912 elements, Need to dynamically add.
             nc_out.variables[name][i,0:34,lat_i-lat_range:lat_i+lat_range,lon_i-lon_range:lon_i+lon_range] = data
             print("Downloaded and added to output file ", name, ' hour index - ', i, ' time - ', i*3)
+
+exec(open("config_earth_week.py.py").read())

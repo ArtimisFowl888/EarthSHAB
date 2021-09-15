@@ -34,7 +34,7 @@ hourstamp = config_earth.netcdf['hourstamp']
 mp = config_earth.balloon_properties['mp']
 
 #masses = [0, .25, .5, .75, .9, .95, 1, 1.05, 1.1, 1.25, 1.5, 1.75, 2]
-masses = np.arange(mp-0.5,mp+0.5,0.02)
+masses = np.arange(mp-2,mp+2,0.25)
 
 color = cmap = cm.get_cmap('rainbow_r', len(masses))
 
@@ -173,4 +173,6 @@ hour_index, new_timestamp = windmap.getHourIndex(start, nc_start)
 windmap.plotWindVelocity(hour_index, coord["lat"], coord["lon"])
 windmap.plotTempAlt(hour_index, coord["lat"], coord["lon"])
 fig.savefig("plots/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
-plt.show()
+plt.show(block=False)
+plt.pause(3)
+plt.close()
