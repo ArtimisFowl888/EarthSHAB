@@ -167,7 +167,7 @@ def predict(Lday):
     ])
 
     # gmap1.polygon(*region, color='cornflowerblue', edge_width=1, alpha= .2)
-    gmap1.draw("trajectories/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html")
+    gmap1.draw("trajectories/" + config_earth.gfs[0:4]+ config_earth.gfs[5:7] + config_earth.gfs[8:10]+config_earth.netcdf['hourstamp']+"_"+str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html")
 
     executionTime = (tm.time() - scriptstartTime)
     print('\nSimulation executed in ' + str(executionTime) + ' seconds.')
@@ -176,7 +176,7 @@ def predict(Lday):
     hour_index, new_timestamp = windmap.getHourIndex(start, nc_start)
     windmap.plotWindVelocity(hour_index, coord["lat"], coord["lon"])
     windmap.plotTempAlt(hour_index, coord["lat"], coord["lon"])
-    fig.savefig("plots/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
+    fig.savefig("plots/" + config_earth.gfs[0:4]+ config_earth.gfs[5:7] + config_earth.gfs[8:10]+config_earth.netcdf['hourstamp']+"_"+ str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
     plt.show(block=False)
     plt.pause(3)
     plt.close()

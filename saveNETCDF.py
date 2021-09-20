@@ -5,7 +5,7 @@ import numpy as np
 import sys
 
 import os
-
+week = input("run week (Week,Day,No) ")
 coord = config_earth.simulation['start_coord']
 lat_range = config_earth.netcdf['lat_range']
 lon_range = config_earth.netcdf['lon_range']
@@ -26,7 +26,7 @@ Archive forecast dataset retirval is not currently supported.
 """
 
 def closest(arr, k):
-    """ Given an ordered array and a value, determines the index of the closest item
+    """ Given an ordered array and a value, determines the index of the closest itemD
     contained in the array.
     """
     return min(range(len(arr)), key = lambda i: abs(arr[i]-k))
@@ -92,4 +92,8 @@ for name, variable in nc_in.variables.items():
             nc_out.variables[name][i,0:34,lat_i-lat_range:lat_i+lat_range,lon_i-lon_range:lon_i+lon_range] = data
             print("Downloaded and added to output file ", name, ' hour index - ', i, ' time - ', i*3)
 
-exec(open("config_earth_week.py.py").read())
+if week == 'Week':
+    exec(open("config_earth_week.py").read())
+elif week == 'Day':
+    exec(open("predict.py").read())
+

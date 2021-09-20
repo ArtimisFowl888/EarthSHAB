@@ -4,6 +4,14 @@ from backports.datetime_fromisoformat import MonkeyPatch
 
 MonkeyPatch.patch_fromisoformat()  # Hacky solution for Python 3.6 to use ISO format Strings
 
+#hw = 64
+#hw = 24
+
+hw = 64
+gfs = "2021-09-19 18:00:00"  # Forecast start time, should match a downloaded forecast
+start_time = datetime.fromisoformat("2021-09-20 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
+
+
 balloon_properties = dict(
     shape='sphere',
     d=7,  # (m) Diameter of Sphere Balloon
@@ -16,9 +24,6 @@ balloon_properties = dict(
     Upsilon=2.5,  # Ascent Resistance coefficient
 )
 
-gfs = "2021-09-14 18:00:00"  # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-09-16 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
-
 # These parameters are for both downloading new forecasts, and running simulations with downloaded forecasts.
 netcdf = dict(
     nc_file=("forecasts/gfs_0p25_" + gfs[0:4] + gfs[5:7] + gfs[8:10] + "_" + gfs[11:13] + ".nc"),
@@ -29,7 +34,8 @@ netcdf = dict(
     res=0.25,  # (deg) Do not change
     lat_range=40,  # (.25 deg)
     lon_range=40,  # (.25 deg)
-    hours3=60,  # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
+    hours3=hw,  # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
+    # hours3=60,  # (1-80) In intervals of 3 hours.  hour_index of 8 is 8*3=24 hours
 )
 
 simulation = dict(
@@ -40,11 +46,12 @@ simulation = dict(
     alt_sp=15000.0,  # (m) Altitude Setpoint
     v_sp=0.,  # (m/s) Altitude Setpoint, Not Implemented right now
     start_coord={
-        "lat": 35.811422,  # (deg) Latitude
-        "lon": -99.193882,  # (deg) Longitude
-        #                      "lat": 36.1626,           # (deg) Latitude
-        #                      "lon": -96.8358,         # (deg) Longitude
-        "alt": 561.,  # (m) Elevation
+        # "lat": 35.811422,  # (deg) Latitude
+        # "lon": -99.193882,  # (deg) Longitude
+        # "alt": 561.,  # (m) Elevation
+        "lat": 36.1626,  # (deg) Latitude
+        "lon": -96.8358,  # (deg) Longitude
+        "alt": 300.,  # (m) Elevation
         "timestamp": start_time,  # timestamp
     },
     min_alt=408.,  # starting altitude. Generally the same as initial coordinate
@@ -66,5 +73,4 @@ earth_properties = dict(
 
 dt = 2.0  # (s) Time Step for integrating (If error's occur, use a lower step size)
 
-#subprocess.call("saveNETCDF.py", shell=True)
-#subprocess.call("predict.py", shell=True)
+#exec(open("saveNETCDF.py").read())

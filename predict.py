@@ -34,7 +34,7 @@ hourstamp = config_earth.netcdf['hourstamp']
 mp = config_earth.balloon_properties['mp']
 
 #masses = [0, .25, .5, .75, .9, .95, 1, 1.05, 1.1, 1.25, 1.5, 1.75, 2]
-masses = np.arange(mp-2,mp+2,0.25)
+masses = np.arange(mp-2,mp+2,0.8)
 
 color = cmap = cm.get_cmap('rainbow_r', len(masses))
 
@@ -163,7 +163,7 @@ region = zip(*[
 ])
 
 # gmap1.polygon(*region, color='cornflowerblue', edge_width=1, alpha= .2)
-gmap1.draw("trajectories/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html")
+gmap1.draw("trajectories/" + config_earth.gfs[0:4]+ config_earth.gfs[5:7] + config_earth.gfs[8:10]+config_earth.netcdf['hourstamp']+"_"+ str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.html")
 
 executionTime = (tm.time() - scriptstartTime)
 print('\nSimulation executed in ' + str(executionTime) + ' seconds.')
@@ -172,7 +172,6 @@ plt.style.use('default')
 hour_index, new_timestamp = windmap.getHourIndex(start, nc_start)
 windmap.plotWindVelocity(hour_index, coord["lat"], coord["lon"])
 windmap.plotTempAlt(hour_index, coord["lat"], coord["lon"])
-fig.savefig("plots/" + str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
-plt.show(block=False)
-plt.pause(3)
-plt.close()
+fig.savefig("plots/" + config_earth.gfs[0:4]+ config_earth.gfs[5:7] + config_earth.gfs[8:10]+config_earth.netcdf['hourstamp']+"_"+ str(t.year) + "_" + str(t.month) + "_" + str(start.day) + "_trajectories.png")
+plt.show()
+
