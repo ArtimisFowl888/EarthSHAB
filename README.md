@@ -81,7 +81,7 @@ The scripts can be run with the default configuration file parameters and the in
 ## Author
 
 * **Tristan Schuler** - *U.S. Naval Research Laboratory, University of Arizona*
-
+* **Zach Yap** - *Oklahoma State University*
 ## Acknowledgments
 
 Hat Tip to [Bovine Aerospace](https://bovineaerospace.wordpress.com/), who developed an initial solar balloon model in C++. This code was adapted from their [repo](https://github.com/tunawhiskers/balloon_trajectory).
