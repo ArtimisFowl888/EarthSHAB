@@ -49,7 +49,7 @@ def predict(Lday):
         print(colored("----------------------------------------------------------", "magenta"))
 
         # Reset Config Values
-        GMT = 7  # MST
+        GMT = 5  # MST
         coord = config_earth.simulation['start_coord']
         t = Lday
         start = t
@@ -152,7 +152,7 @@ def predict(Lday):
 
     # Plotting
 
-    plt.xlabel('Datetime (MST)')
+    plt.xlabel('Datetime (CST)')
     plt.ylabel('Elevation (m)')
     ax.get_xaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())
     ax.get_yaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())

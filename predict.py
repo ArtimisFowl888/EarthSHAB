@@ -34,7 +34,7 @@ hourstamp = config_earth.netcdf['hourstamp']
 mp = config_earth.balloon_properties['mp']
 
 #masses = [0, .25, .5, .75, .9, .95, 1, 1.05, 1.1, 1.25, 1.5, 1.75, 2]
-masses = np.arange(mp-2,mp+2,0.8)
+masses = np.arange(mp-2,mp+2,0.5)
 
 color = cmap = cm.get_cmap('rainbow_r', len(masses))
 
@@ -47,7 +47,7 @@ for j in range(0, len(masses)):
     print(colored("----------------------------------------------------------", "magenta"))
 
     # Reset Config Values
-    GMT = 7  # MST
+    GMT = 5  # MST
     coord = config_earth.simulation['start_coord']
     t = config_earth.simulation['start_time']
     start = t
@@ -56,7 +56,8 @@ for j in range(0, len(masses)):
     min_alt = config_earth.simulation['min_alt']
     alt_sp = config_earth.simulation['alt_sp']
     v_sp = config_earth.simulation['v_sp']
-    dt = config_earth.dt
+    #dt = config_earth.dt
+    dt = 1.0
     atm = fluids.atmosphere.ATMOSPHERE_1976(min_alt)
 
     GFSrate = config_earth.GFS['GFSrate']
@@ -148,7 +149,7 @@ for j in range(0, len(masses)):
 
 # Plotting
 
-plt.xlabel('Datetime (MST)')
+plt.xlabel('Datetime (CST)')
 plt.ylabel('Elevation (m)')
 ax.get_xaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())
 ax.get_yaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())

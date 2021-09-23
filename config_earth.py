@@ -7,9 +7,9 @@ MonkeyPatch.patch_fromisoformat()  # Hacky solution for Python 3.6 to use ISO fo
 #hw = 64
 #hw = 24
 
-hw = 64
-gfs = "2021-09-19 18:00:00"  # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-09-20 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
+hw = 24
+gfs = "2021-09-23 06:00:00"  # Forecast start time, should match a downloaded forecast
+start_time = datetime.fromisoformat("2021-09-23 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
 
 
 balloon_properties = dict(
