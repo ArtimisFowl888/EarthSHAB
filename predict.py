@@ -38,7 +38,7 @@ masses = np.arange(mp-2,mp+2,0.5)
 
 color = cmap = cm.get_cmap('rainbow_r', len(masses))
 
-plt.style.use('seaborn-darkgrid')
+plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams.update({'font.size': 14})
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 
@@ -153,8 +153,8 @@ plt.xlabel('Datetime (CST)')
 plt.ylabel('Elevation (m)')
 ax.get_xaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())
 ax.get_yaxis().set_minor_locator(mpl.ticker.AutoMinorLocator())
-ax.grid(b=True, which='major', color='w', linewidth=1.0)
-ax.grid(b=True, which='minor', color='w', linewidth=0.5)
+ax.grid(visible=True, which='major', color='w', linewidth=1.0)
+ax.grid(visible=True, which='minor', color='w', linewidth=0.5)
 
 region = zip(*[
     (gfs.LAT_LOW, gfs.LON_LOW),

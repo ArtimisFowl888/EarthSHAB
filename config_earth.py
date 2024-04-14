@@ -7,9 +7,9 @@ MonkeyPatch.patch_fromisoformat()  # Hacky solution for Python 3.6 to use ISO fo
 #hw = 64
 #hw = 24
 
-hw = 24
-gfs = "2021-09-23 06:00:00"  # Forecast start time, should match a downloaded forecast
-start_time = datetime.fromisoformat("2021-09-23 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
+hw = 64
+gfs = "2024-04-14 06:00:00"  # Forecast start time, should match a downloaded forecast
+start_time = datetime.fromisoformat("2024-04-15 13:30:00")  # Simulation start time. The end time needs to be within the downloaded forecast
 
 
 balloon_properties = dict(
@@ -46,12 +46,12 @@ simulation = dict(
     alt_sp=15000.0,  # (m) Altitude Setpoint
     v_sp=0.,  # (m/s) Altitude Setpoint, Not Implemented right now
     start_coord={
-        # "lat": 35.811422,  # (deg) Latitude
-        # "lon": -99.193882,  # (deg) Longitude
-        # "alt": 561.,  # (m) Elevation
-        "lat": 36.1626,  # (deg) Latitude
-        "lon": -96.8358,  # (deg) Longitude
-        "alt": 300.,  # (m) Elevation
+        "lat": 36.75438,  # (deg) Latitude
+        "lon": -98.23077,  # (deg) Longitude
+        "alt": 344.,  # (m) Elevation
+        #"lat": 36.1626,  # (deg) Latitude
+        #"lon": -96.8358,  # (deg) Longitude
+        #"alt": 300.,  # (m) Elevation
         "timestamp": start_time,  # timestamp
     },
     min_alt=408.,  # starting altitude. Generally the same as initial coordinate
